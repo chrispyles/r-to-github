@@ -6,6 +6,8 @@ output: html_document
 
 <script type="text/javascript" src="../utils/index-menu.js"></script>
 
+[<img src="../assets/view-on-github.png" width="150" />](https://github.com/chrispyles/r-to-github)
+
 ### About
 
 This repository is a skeleton for a reproducible R pipeline that allows you to create and publish analyses online hosted through Github Pages. It works by knitting the Rmd files in the `notebooks` directory into the `export` directory to create a static HTML site which can be hosted from the repository containing the original work. This is nice because it reduces the number of repositories related to a single project and allows you to keep all of your work in one place.
