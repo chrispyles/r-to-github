@@ -381,7 +381,7 @@ $(document).ready(function () {
 
 
 <script type="text/javascript">var html = `
-	<strong>Notebooks:</strong> <a href="index.html">Home</a> | <a href="export/01-loading-data.html">Loading Data</a><br><br>
+	<strong>Notebooks:</strong> <a href="index.html">Home</a> | <a href="export/01-sample-page.html">Sample Page</a><br><br>
 `;
 document.write(html)
 </script>
@@ -394,11 +394,34 @@ document.write(html)
 <p>To use this pipeline, there are a few simple steps.</p>
 <ol style="list-style-type: decimal">
 <li>Copy the contents of this repo locally. Do not edit any of the files in the <code>utils</code> directory.</li>
-<li>Put any analysis notebooks in the <code>notebooks</code> directory. The naming scheme begins with a 0-padded number to indicate ordering and then using the <code>-</code> character in place of spaces. For example, if the fifth notebook was titled “Principal Component Analaysis with Scree Plot”, then the filename would be <code>05-principal-component-analysis-with-scree-plot.Rmd</code>. The utilities function will automatically capitalize all words in the title.</li>
-<li>Create a homepage for your project. This will be an Rmd file that should be saved as <code>notebooks/index.Rmd</code>.</li>
+<li>Put any analysis notebooks in the <code>notebooks</code> directory. Make sure your filenames follow the <a href="#naming-scheme">naming scheme</a>. Make sure each notebook includes the <a href="#javascript-menus">JavaScript to generate the menus</a>.</li>
+<li>Create a <a href="#project-homepage">homepage</a> for your project.</li>
 <li>Run the file <code>utils/export.R</code>. This will generate the necessary JavaScript files for the page menus and knit each Rmd file in the <code>notebooks</code> directory. All output HTML files should appear in the <code>export</code> directory.</li>
 <li>Push to Github and you’re done!</li>
 </ol>
+</div>
+<div id="naming-scheme" class="section level3">
+<h3>Naming Scheme</h3>
+<p>Files in the <code>notebooks</code> directory need to follow a particular naming scheme so that the R scripts which knit the notebooks order them correctly in the menu. This scheme begins each file with a 2-digit number indicating the order (first is <code>01</code>, second <code>02</code>, etc.). Each word in the notebook title (what you want displayed in the menu) should follow that number with hyphens in place of spaces.</p>
+<p>For example, if the fifth notebook was titled “Principal Component Analaysis with Scree Plot”, then the filename would be <code>05-principal-component-analysis-with-scree-plot.Rmd</code>. The utilities function will automatically capitalize all words in the title.</p>
+<div id="project-homepage" class="section level4">
+<h4>Project Homepage</h4>
+<p>The homepage for your project will also be located in this folder but it will be named <code>index.Rmd</code> (not following the naming scheme). This is important because Github pages requires an <code>index.html</code> file in the root directory for the project as the homepage.</p>
+<p>A sample structure, from the <a href="https://github.com/chrispyles/r-to-github/tree/master/notebooks">Github repo for this project</a>, is given below.</p>
+<pre><code>| notebooks
+  | 01-sample-page.Rmd
+  | index.Rmd</code></pre>
+</div>
+</div>
+<div id="javascript-menus" class="section level3">
+<h3>JavaScript Menus</h3>
+<p>The menus in this project are generated through R writing a JavaScript file which is executed in the HTML output files. In order to include the menu on each page, the Rmd file needs to include an HTML <code>script</code> tag so that the menu is loaded with in the knitted document.</p>
+<p>For all notebooks <em>except the index notebook</em>, include the HTML below at the top of the notebook (directly below the YAML header):</p>
+<pre class="html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;../utils/menu.js&quot;&gt;&lt;/script&gt;</code></pre>
+<p>The <code>utils/generate-menu.R</code> script, executed in the <code>utils/export.R</code> script, creates the JS file referenced above, along with the menu for the index page.</p>
+<p>For the index notebook, the HTML <code>script</code> tag is a bit different:</p>
+<pre class="html"><code>&lt;script type=&quot;text/javascript&quot; src=&quot;../utils/index-menu.js&quot;&gt;&lt;/script&gt;</code></pre>
+<p>This is because the <code>index.html</code> file is in a different directory from the knitted HTML files and so the links to other pages are different.</p>
 </div>
 <div id="notes" class="section level3">
 <h3>Notes</h3>
