@@ -26,7 +26,7 @@ To use this pipeline, there are a few simple steps.
 
 Files in the `notebooks` directory need to follow a particular naming scheme so that the R scripts which knit the notebooks order them correctly in the menu. This scheme begins each file with a 2-digit number indicating the order (first is `01`, second `02`, etc.). Each word in the notebook title (what you want displayed in the menu) should follow that number with hyphens in place of spaces. 
 
-For example, if the fifth notebook was titled "Principal Component Analaysis with Scree Plot", then the filename would be `05-principal-component-analysis-with-scree-plot.Rmd`. The utilities function will automatically capitalize all words in the title.
+For example, if the fifth notebook was titled "Principal Component Analysis with Scree Plot", then the filename would be `05-principal-component-analysis-with-scree-plot.Rmd`. The utilities function will automatically capitalize all words in the title.
 
 #### Project Homepage
 
