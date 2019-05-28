@@ -1,0 +1,27 @@
+---
+title: "R to Github"
+author: "Chris Pyles"
+output: html_document
+---
+
+<script type="text/javascript" src="../utils/index-menu.js"></script>
+
+### About
+
+This repository is a skeleton for a reproducible R pipeline that allows you to create and publish analyses online hosted through Github Pages. It works by knitting the Rmd files in the `notebooks` directory into the `export` directory to create a static HTML site which can be hosted from the repository containing the original work. This is nice because it reduces the number of repositories related to a single project and allows you to keep all of your work in one place.
+
+### How To Use It
+
+To use this pipeline, there are a few simple steps.
+
+1. Copy the contents of this repo locally. Do not edit any of the files in the `utils` directory.
+2. Put any analysis notebooks in the `notebooks` directory. The naming scheme begins with a 0-padded number to indicate ordering and then using the `-` character in place of spaces. For example, if the fifth notebook was titled "Principal Component Analaysis with Scree Plot", then the filename would be `05-principal-component-analysis-with-scree-plot.Rmd`. The utilities function will automatically capitalize all words in the title.
+3. Create a homepage for your project. This will be an Rmd file that should be saved as `notebooks/index.Rmd`.
+4. Run the file `utils/export.R`. This will generate the necessary JavaScript files for the page menus and knit each Rmd file in the `notebooks` directory. All output HTML files should appear in the `export` directory.
+5. Push to Github and you're done!
+
+### Notes
+
+These are some things I've noticed that make the output look nicer when using this workflow.
+
+* Start with level 3 headings rather than level 1 headings, because otherwise the page title and the headings look the same.

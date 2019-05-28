@@ -1,0 +1,41 @@
+---
+title: "R to Github"
+output: html_document
+---
+
+<script type="text/javascript" src="../utils/menu.js"></script>
+
+### A Sample Page
+
+This page is here as a sample of what a page of analysis would look like in the final site. This (simple) example uses the `iris` dataset.
+
+### Loading the Data
+
+```{r include=FALSE}
+knitr::opts_chunk$set(message=FALSE, warning=FALSE)
+```
+
+```{r}
+library(tidyverse)
+
+```
+
+#### Linear Relationships
+
+Let's look at a plot of these variables and their correlation.
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) + 
+  geom_line() +
+  ggtitle(paste0("Sepal Width vs. Sepal Length, r = ", cor(iris$Sepal.Length, iris$Sepal.Width)))
+```
+
+There doesn't seem to be a very good relationsthip. But what about sepal and petal lengths?
+
+```{r}
+ggplot(iris, aes(x = Sepal.Length, y = Petal.Length)) + 
+  geom_line() +
+  ggtitle(paste0("Petal Length vs. Sepal Length, r = ", cor(iris$Sepal.Length, iris$Petal.Length)))
+```
+
+We see a much higher correlation between these two variables.
