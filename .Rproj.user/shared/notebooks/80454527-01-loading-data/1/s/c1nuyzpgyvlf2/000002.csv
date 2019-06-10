@@ -1,3 +1,0 @@
-"0","ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width)) + "
-"0","  geom_line() +"
-"0","  ggtitle(paste0(""Sepal Width vs. Sepal Length, r = "", cor(iris$Sepal.Length, iris$Sepal.Width)))"

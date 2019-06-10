@@ -1,3 +1,0 @@
-"0","ggplot(iris, aes(x = Sepal.Length, y = Petal.Length)) + "
-"0","  geom_line() +"
-"0","  ggtitle(paste0(""Petal Length vs. Sepal Length, r = "", cor(iris$Sepal.Length, iris$Petal.Length)))"
